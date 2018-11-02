@@ -1,0 +1,14 @@
+# VS Code files
+*.VC.db*
+
+# OS X files
+.DS_Store
+
+# Build artifacts
+build/
+
+# Python
+*.pyc
+
+#other
+.vscode
