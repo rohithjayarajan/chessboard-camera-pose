@@ -30,17 +30,21 @@ class CameraPose {
   cv::Mat cameraMatrix_ = (cv::Mat_<float>(3, 3) << 482.4307, 0, 188.9788, 0,
                            488.7866, 151.3949, 0, 0, 1);
   std::vector<double> distCoeffs_ = {-0.3264, 0.3535, -0.0082, 0.0029, -0.4346};
-  cv::Size_<int> patternSize_ = cvSize(9, 6);
+  cv::Size_<int> patternSize_;
+  double chessboardEdge;
 
  public:
   CameraPose();
+  CameraPose(double chessboardEdge_);
   ~CameraPose();
   void drawAxes(cv::Mat &src_, cv::Mat &dst_, std::vector<cv::Point2d> &imgPts_,
                 std::vector<cv::Point2f> &cornersSP_);
   void helper_RT_ImgPoints(cv::Mat &src_, cv::Mat &rvec_, cv::Mat &tvec_,
                            std::vector<cv::Point2f> &corners_,
                            std::vector<cv::Point3d> &boardPts_);
-  void poseEstimation(std::string frame_);
+  bool poseEstimationImage(std::string frame_);
+  bool poseEstimationCamera();
+  void setPatternSize(int checkerboardRows, int checkerboardCols);
 };
 
 #endif  // INCLUDE_CAMERAPOSE_HPP_
