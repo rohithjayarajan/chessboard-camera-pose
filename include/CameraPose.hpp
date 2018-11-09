@@ -64,7 +64,7 @@ class CameraPose {
 
  public:
   CameraPose();
-  CameraPose(double chessboardEdge_);
+  explicit CameraPose(double chessboardEdge_);
   ~CameraPose();
   void drawAxes(cv::Mat &src_, cv::Mat &dst_, std::vector<cv::Point2d> &imgPts_,
                 std::vector<cv::Point2f> &cornersSP_);

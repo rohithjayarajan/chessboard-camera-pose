@@ -49,7 +49,7 @@ CameraPose::CameraPose() {
   patternSize_ = cvSize(9, 6);
 }
 
-CameraPose::CameraPose(double chessboardEdge_) {
+explicit CameraPose::CameraPose(double chessboardEdge_) {
   chessboardEdge = chessboardEdge_;
   patternSize_ = cvSize(9, 6);
 }
